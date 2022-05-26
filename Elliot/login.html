@@ -73,7 +73,7 @@
                     <img src="Resources/Images/Grupo 36.png" class="img-fluid" alt="Sample image" />
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form id="formLogin">
+                    <form id="formLogin" method="POST">
 
                         <div class="divider d-flex align-items-center my-4">
                             <p class="text-center fw-bold mx-3 mb-0">Login</p>
@@ -81,14 +81,14 @@
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="email" name="form3Example3" class="form-control form-control-lg" placeholder="Ingrese su dirección de correo electrónico" />
-                            <label class="form-label" for="form3Example3">E-mail</label>
+                            <input type="text" name="username" class="form-control form-control-lg" placeholder="Ingrese su Usuario" />
+                            <label class="form-label" for="password">Username</label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-3">
-                            <input type="password" name="form3Example4" class="form-control form-control-lg" placeholder="Ingrese su contraseña" />
-                            <label class="form-label" for="form3Example4">Contraseña</label>
+                            <input type="password" name="password" class="form-control form-control-lg" placeholder="Ingrese su Contraseña" />
+                            <label class="form-label" for="password">Contraseña</label>
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center">
@@ -177,15 +177,26 @@
         let datos = $(nombre).serialize();
         $.ajax({
             type: "POST",
-            url: "CRUDs/usuario/updateUsuario.php",
+            url: "partials/loginUser.php",
             data: datos,
             success: function(r) {
-                if (r == 1) {
-                    alert("Cambios Guardados con exito");
-                    window.location.reload();
-                    return 0;
-                } else if (r == 2) {
-                    alert("Upps ha ocurrido un error al intentar actualizar el Usuario, intenta de nuevo");
+                switch (r) {
+                    case '0':
+                        swal("Upps...", "El Usuario no existe... \n Intenta de Nuevo :c", "error");
+                        break;
+                    case '1':
+                        swal("Perfecto", "Sesión iniciada con exito :D", "success");
+                        break;
+                    case '2':
+                        swal("Upps...", "Ha ocurrido un error al conectar con la Base de Datos... \n Contacta a Soporte :s", "error");
+                        break;
+                    case '9':
+                        swal("Upps...", "Contraseña Incorrecta... \n Intenta de Nuevo :c", "error");
+                        break;
+                    default:
+                        alert(r);
+                        swal("Upps...", "Ha ocurrido un error al conectar con el Servidor... \n Contacta a Soporte :s", "error");
+                        break;
                 }
             }
         });
