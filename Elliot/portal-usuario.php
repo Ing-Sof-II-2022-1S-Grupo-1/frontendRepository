@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
+    header('Location: login.html');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="Resources/Images/Grupo 24.png" />
-    <title>Recuperar mi Cuenta</title>
+    <title>Acceder a Elliot</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -27,17 +34,15 @@
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" style="padding-right: 40px; padding-left: 40px">
-                        <a class="nav-link active" aria-current="page" href="inicio.html" id="texto-botones">Inicio</a
-              >
-            </li>
-            <li class="nav-item" id="nav-item-linea" style="padding-left: 40px">
-              <a class="nav-link" href="#" id="texto-botones"
-                >¿Quiénes somos?</a>
+                        <a class="nav-link active" aria-current="page" href="inicio.html" id="texto-botones">Inicio</a>
+                    </li>
+                    <li class="nav-item" id="nav-item-linea" style="padding-left: 40px">
+                        <a class="nav-link" href="#" id="texto-botones">¿Quiénes somos?</a>
                     </li>
                     <li class="nav-item" style="
                         padding-right: 40px;
@@ -61,45 +66,88 @@
         </div>
 
         <span class="login">
-            <a href="portal-usuario.php"><img src="Resources/Images/user_50px.png" width="30px" style="margin-right: 30px"/></a>
+            <a href="portal-usuario.php"><img src="Resources/Images/user_50px.png" width="30px" style="margin-right: 30px" /></a>
             <img src="Resources/Images/phone_50px.png" width="30px" />
         </span>
     </nav>
 
-    <section class="vh-100">
-        <div class="container-fluid h-custom">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-9 col-lg-6 col-xl-5">
-                    <img src="Resources/Images/Grupo 36.png" class="img-fluid" alt="Sample image" style="max-width: 50%; margin-top: 100px; margin-left:80px;" />
-                </div>
-                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form id="formLogin" method="POST">
-
-                        <div class="divider d-flex align-items-center my-4">
-                            <p class="text-center fw-bold mx-3 mb-0">Recuperación de contraseña</p>
-                        </div>
-
-                        <p>Al ingresar el correo electrónico con el cual se registró se le enviarán las instrucciones para la recuperación de su cuenta.</p>
-
-                        <!-- Email input -->
-                        <div class="form-outline mb-4">
-                            <input type="email" name="email" class="form-control form-control-lg" placeholder="Ingrese su Email" />
-                            <label class="form-label" for="email">Email Registrado</label>
-                        </div>
-
-                        <div class="text-center text-lg-start mt-4 pt-2">
-                            <button type="button" onclick=";" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">
-                                Enviar información
-                            </button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">
-                                <a href="login.html" class="m-3 link-danger">¿Ya tiene una cuenta?</a>
-                            </p>
-                        </div>
-                    </form>
-                </div>
+    <div class="container">
+        <div class="row" style="max-height: 100px;">
+            <div class="col-12" style=" margin-top: 50px; margin-bottom: 50px; ">
+                <h2 style="margin-top:10%; margin-bottom: 40px; display: inline;">
+                    Portal de usuario
+                </h2>
+                <a href="#" onclick="logout();">
+                    <img src="Resources/Images/option.png" width="30px" style="margin-bottom: 40px; float: right;" />
+                </a>
+                <p id="texto-titulo" style="margin-bottom: 40px; float: right; margin-right: 30px;">
+                    Bienvenido <?php echo $_SESSION['user']; ?>
+                </p>
             </div>
         </div>
-    </section>
+
+        <div class="row">
+            <div class="col-2 side-menu" style="padding-bottom:10px; padding-top:20px;">
+                <ul class="nav flex-column menu-vertical">
+                    <li class="nav-item" style="margin-top: 20px; margin-bottom: 20px; margin-left: 10px;">
+                        <a class="nav-link active" id="texto-botones" href="#">Mi perfil</a>
+                    </li>
+                    <li class="nav-item" style="margin-top: 20px; margin-bottom: 20px; margin-left: 10px;">
+                        <a class="nav-link" id="texto-botones" href="#">Cámaras</a>
+                    </li>
+                    <li class="nav-item" style="margin-top: 20px; margin-bottom: 20px; margin-left: 10px;">
+                        <a class="nav-link" id="texto-botones" href="#">Relés</a>
+                    </li>
+                    <li class="nav-item" style="margin-top: 20px; margin-left: 10px;">
+                        <a class="nav-link" id="texto-botones" href="#">Sensores</a>
+                    </li>
+                    <div class="divider d-flex align-items-center my-4"></div>
+                    <li class="nav-item" style=" margin-bottom: 30px; margin-left: 10px;">
+                        <a class="nav-link" id="texto-botones" href="#">Ayuda</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;">
+
+                <h2 style="margin-bottom: 30px; margin-left: 30px;">
+                    Dashboard
+                </h2>
+                <p style="margin-bottom: 40px; margin-top: 30px; margin-left: 30px;">
+                    Bienvenido al <b>Portal de usuario de Elliot</b>, desde aquí podrá controlar todos los dispositivos que tenga asociados, además de adicionar o eliminar los ya existentes.
+                </p>
+
+                <center>
+                    <h2 style="margin-bottom: 30px; margin-left: 30px;">
+                        Blog
+                    </h2>
+                    <div class="card" style="width: 18rem; display: inline-block; margin-left: 30px;">
+                        <div class="card-body">
+                            <h5 class="card-title">Compromiso con la seguridad</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn">Leer más</a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; display: inline-block; margin-left: 60px; margin-right: 60px;">
+                        <div class="card-body">
+                            <h5 class="card-title">El alza de los CCTV´s en el último año</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn">Leer más</a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 18rem; display: inline-block">
+                        <div class="card-body">
+                            <h5 class="card-title">Criptografía: Pilar de la seguridad</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn">Leer más</a>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
 
     <footer class="text-center text-lg-start" style="
         background-color: #feefe8;
@@ -156,11 +204,9 @@
 </body>
 
 <!-- auteticación de Usuario -->
-<script src="jsQuerys/loginUser.js"></script>
+<script src="jsQuerys/logoutUser.js"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
 
 </html>

@@ -15,7 +15,8 @@ try {
         //if (password_verify($contrasena, $fetch->passwordUsuario)) {
         if ($contrasena == $fetch->passwordUsuario) {
             session_start();
-            $_SESSION['user'] = $fetch->passwordUsuario;
+            $_SESSION['idUser'] = $fetch->idUsuario;
+            $_SESSION['user'] = $fetch->usernameUsuario;
             $_SESSION['nombres'] = $fetch->nombresUsuario;
             $_SESSION['apellidos'] = $fetch->apellidosUsuario;
 

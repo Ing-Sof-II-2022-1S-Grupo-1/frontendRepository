@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -27,8 +28,8 @@
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" style="padding-right: 40px; padding-left: 40px">
@@ -61,7 +62,7 @@
         </div>
 
         <span class="login">
-            <a href="login.html"><img src="Resources/Images/user_50px.png" width="30px" style="margin-right: 30px"/></a>
+            <a href="portal-usuario.php"><img src="Resources/Images/user_50px.png" width="30px" style="margin-right: 30px"/></a>
             <img src="Resources/Images/phone_50px.png" width="30px" />
         </span>
     </nav>
@@ -92,13 +93,6 @@
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <!-- Checkbox -->
-                            <div class="form-check mb-0">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3">
-                                <label class="form-check-label" for="form2Example3">
-                                    Recordar credenciales
-                                </label>
-                            </div>
                             <a href="recuperarMiCuenta.html" class="text-body">Olvidé mis Credenciales</a>
                         </div>
 
@@ -173,10 +167,5 @@
 
 <!-- auteticación de Usuario -->
 <script src="jsQuerys/loginUser.js"></script>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
 
 </html>
