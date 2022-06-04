@@ -149,49 +149,41 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
         </div>
     </div>
 
-    <footer class="text-center text-lg-start" style="
-        background-color: #feefe8;
-        min-height: 300px;
-        border-right-color: rgba(0, 0, 0, 0);
-        border-width: 3px;
-        border-top-color: rgb(0, 0, 0);
-        border-style: solid;
-        border-bottom-color: rgba(0, 0, 0, 0);
-        border-left-color: rgba(255, 255, 255, 0);
-      ">
+    <footer class="text-center text-lg-start " style="background-color: #feefe8; min-height: 300px; border-right-color: rgba(0, 0, 0, 0); border-width: 3px; border-top-color: rgb(0, 0, 0); border-style: solid; border-bottom-color: rgba(0, 0, 0, 0);
+                                border-left-color: rgba(255, 255, 255, 0); ">
         <!-- Grid container -->
-        <div class="container p-2">
+        <div class="container p-2 ">
             <!--Grid row-->
-            <div class="row">
+            <div class="row ">
                 <!--Grid column-->
-                <div class="col-4">
-                    <img src="Resources/Images/Grupo 35.png" width="40%" style="float: right; margin-top: 50px; float: left" /><br /><br /><br /><br /><br /><br />
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#!" class="">Inicio</a><br /></li>
-                        <li><a href="#!" class="">¿Quiénes Somos?</a><br /></li>
-                        <li><a href="#!" class="">Productos</a><br /></li>
-                        <li><a href="#!" class="">Planes</a><br /></li>
+                <div class="col-4 ">
+                    <img src="Resources/Images/Grupo 35.png " width="40% " style="float: right; margin-top: 50px; float: left " /><br /><br /><br /><br /><br /><br />
+                    <ul class="list-unstyled mb-0 ">
+                        <li><a href="inicio.html" class=" ">Inicio</a><br /></li>
+                        <li><a href="#!" class=" ">¿Quiénes Somos?</a><br /></li>
+                        <li><a href="#!" class=" ">Productos</a><br /></li>
+                        <li><a href="#!" class=" ">Planes</a><br /></li>
                     </ul>
                 </div>
                 <!--Grid column-->
 
                 <!--Grid column-->
-                <div class="col-8" style="margin-top: 50px">
-                    <h5 class="text-uppercase mb-0">Información de contacto</h5>
+                <div class="col-8 " style="margin-top: 50px ">
+                    <h5 class="text-uppercase mb-0 ">Información de contacto</h5>
                     <br /><br />
 
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled ">
                         <li>
-                            <a href="#!" class="text-dark">Colombia</a>
+                            <a href="#! " class="text-dark ">Colombia</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-dark">Teusaquillo, Bogotá</a>
+                            <a href="#! " class="text-dark ">Teusaquillo, Bogotá</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-dark">3145678934</a>
+                            <a href="#! " class="text-dark ">3145678934</a>
                         </li>
                         <li>
-                            <a href="#!" class="text-dark">2445678</a>
+                            <a href="#! " class="text-dark ">2445678</a>
                         </li>
                     </ul>
                 </div>
