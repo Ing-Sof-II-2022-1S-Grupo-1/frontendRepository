@@ -1,32 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500,700,800&display=swap');
-
-h1{
+h1 {
     font-family: "Montserrat", sans-serif;
     font-size: 50px;
     color: #315254;
-    font-weight:700;
+    font-weight: 700;
     letter-spacing: 3px;
 }
 
-h2{
+h2 {
     font-family: "Montserrat", sans-serif;
     font-size: 22px;
     color: #315254;
-    font-weight:500;
+    font-weight: 500;
     letter-spacing: 0px;
 }
 
-b{
+b {
     color: #F25C5C;
 }
 
-p{
+p {
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
     color: #315254;
 }
 
-.btn{
+.btn {
     font-family: "Montserrat", sans-serif;
     padding-right: 40px;
     padding-left: 40px;
@@ -34,10 +33,10 @@ p{
     padding-bottom: 10px;
     background-color: #315254;
     border-color: #315254;
-    color:white;
+    color: white;
     font-size: 18px;
     border-radius: 0px;
-    font-weight:500;
+    font-weight: 500;
 }
 
 .btn:hover {
@@ -46,29 +45,28 @@ p{
     border-color: #F25C5C;
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
-    font-weight:500;
-    
+    font-weight: 500;
 }
 
-.logo-menu{
-    max-width:80px;
+.logo-menu {
+    max-width: 80px;
     margin-right: 10px;
     margin-left: 180px;
     display: inline;
     vertical-align: middle;
 }
 
-.texto-logo{
-   display: inline; 
-   color: #fff;
-   font-size: 18px;
-   font-weight: bold;
-   font-family: "Quicksand", sans-serif;
-   letter-spacing: 1.5px;
+.texto-logo {
+    display: inline;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 1.5px;
 }
 
-#texto-botones{
-    display: inline; 
+#texto-botones {
+    display: inline;
     color: #fff;
     font-size: 18px;
     font-weight: normal;
@@ -96,10 +94,10 @@ p{
     display: inline-block;
     vertical-align: middle;
     color: #fff;
-   font-size: 18px;
-   font-weight: normal;
-   font-family: "Quicksand", sans-serif;
-   letter-spacing: 1.5px;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 1.5px;
 }
 
 .navbar-brand {
@@ -112,12 +110,12 @@ p{
     padding-right: 40px;
 }
 
-.login{
+.login {
     display: inline-flex;
     margin-right: 40px;
 }
 
-#separador{
+#separador {
     border-right-color: #F25C5C;
     border-width: 3px;
     border-top-color: #315254;
@@ -127,17 +125,17 @@ p{
     padding-right: 40px;
 }
 
-.img-border{
+.img-border {
     border: 3px solid rgb(0, 0, 0);
 }
 
-#texto-titulo{
+#texto-titulo {
     font-family: "Montserrat", sans-serif;
     font-size: 25px;
     color: #315254;
 }
 
-#container-fondo{
+#container-fondo {
     background-size: cover;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -145,9 +143,7 @@ p{
     margin-bottom: 100px;
 }
 
-
-.footer
-{
+.footer {
     height: 50px;
     background-color: black;
     position: absolute;
@@ -156,8 +152,8 @@ p{
     width: 100%;
 }
 
-a{
-    display: inline; 
+a {
+    display: inline;
     color: #315254;
     font-size: 18px;
     font-weight: bold;
@@ -166,8 +162,8 @@ a{
     text-decoration: none;
 }
 
-a:hover{
-    display: inline; 
+a:hover {
+    display: inline;
     color: #F25C5C;
     font-size: 18px;
     font-weight: bold;
@@ -181,20 +177,15 @@ a:hover{
     border-color: #315254;
 }
 
-.form-label{
+.form-label {
     color: #F25C5C;
 }
 
-.side-menu{
-   
+.side-menu {
     margin-top: 50px;
     margin-bottom: 50px;
-    background-color:#315254;
-    border-radius:15px;
+    background-color: #315254;
+    border-radius: 15px;
 }
 
-
-@media (min-width: 700px){
-
-
-}
+@media (min-width: 700px) {}
