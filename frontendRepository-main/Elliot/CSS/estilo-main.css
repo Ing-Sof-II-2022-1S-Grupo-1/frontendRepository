@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700,800&display=swap');
+
+h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 50px;
+    color: #315254;
+    font-weight:700;
+    letter-spacing: 3px;
+}
+
+h2{
+    font-family: "Quicksand", sans-serif;
+    font-size: 30px;
+    color: #315254;
+    font-weight:700;
+}
+
+b{
+    color: #F25C5C;
+}
+
+p{
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    color: #315254;
+}
+
+.btn{
+    font-family: "Montserrat", sans-serif;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #315254;
+    color:white;
+    font-size: 18px;
+    border-radius: 0px;;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #F25C5C;
+}
+
+.logo-menu{
+    max-width:80px;
+    margin-right: 10px;
+    margin-left: 180px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.texto-logo{
+   display: inline; 
+   color: #fff;
+   font-size: 18px;
+   font-weight: bold;
+   font-family: "Quicksand", sans-serif;
+   letter-spacing: 1.5px;
+}
+
+#texto-botones{
+    display: inline; 
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 1.5px;
+}
+
+#texto-botones:hover {
+    color: #F25C5C;
+}
+
+#nav-item-linea {
+    border-right-color: #F25C5C;
+    border-width: 3px;
+    border-top-color: #315254;
+    border-style: solid;
+    border-bottom-color: #315254;
+    border-left-color: #F25C5C;
+    padding-right: 40px;
+}
+
+.navbar-nav li a {
+    line-height: 40px;
+    margin: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+   font-size: 18px;
+   font-weight: normal;
+   font-family: "Quicksand", sans-serif;
+   letter-spacing: 1.5px;
+}
+
+.navbar-brand {
+    border-right-color: #F25C5C;
+    border-width: 3px;
+    border-top-color: #315254;
+    border-style: solid;
+    border-bottom-color: #315254;
+    border-left-color: #315254;
+    padding-right: 40px;
+}
+
+.login{
+    display: inline-flex;
+    margin-right: 40px;
+}
+
+#separador{
+    border-right-color: #F25C5C;
+    border-width: 3px;
+    border-top-color: #315254;
+    border-style: solid;
+    border-bottom-color: #315254;
+    border-left-color: #315254;
+    padding-right: 40px;
+}
+
+.img-border{
+    border: 3px solid rgb(0, 0, 0);
+}
+
+#texto-titulo{
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    color: #315254;
+}
+
+#container-fondo{
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+
+.footer
+{
+    height: 50px;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+a{
+    display: inline; 
+    color: #315254;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+}
+
+a:hover{
+    display: inline; 
+    color: #F25C5C;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+}
+
+  
+  .pricing .card {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background-color: #fdfcf7;
+  }
+  
+  .pricing hr {
+    margin: 1.5rem 0;
+  }
+  
+  .pricing .card-title {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+  }
+  
+  .pricing .card-price {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .pricing .card-price .period {
+    font-size: 0.8rem;
+  }
+  
+  .pricing ul li {
+    margin-bottom: 1rem;
+  }
+  
+  .pricing .text-muted {
+    opacity: 0.7;
+  }
+  
+  .pricing .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    opacity: 0.7;
+    transition: all 0.2s;
+  }
+  
+  /* Hover Effects on Card */
+  
+  @media (min-width: 992px) {
+    .pricing .card:hover {
+      margin-top: -.25rem;
+      margin-bottom: .25rem;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+    }
+  
+    .pricing .card:hover .btn {
+      opacity: 1;
+    }
+  }
