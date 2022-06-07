@@ -8,22 +8,37 @@ function loginUser() {
         success: function(r) {
             switch (r) {
                 case '0':
-                    swal("Upps...", "El Usuario no existe... \n Intenta de Nuevo :c", "error");
+                    swal("Upps...", "Usuario no encontrado! \n\n Intenta de Nuevo :c", "error");
                     break;
                 case '1':
-                    swal("Perfecto", "Sesión iniciada con exito :D", "success");
+                    swal("Perfecto", "Sesión iniciada con exito :D", "success")
+                        .then((value) => {
+                            location.href = "portal-usuario.php";
+                        });
                     break;
                 case '2':
-                    swal("Upps...", "Ha ocurrido un error al conectar con la Base de Datos... \n Contacta a Soporte :s", "error");
+                    swal("Upps...", "Ha ocurrido un error al conectar con la Base de Datos... \n\n Contacta a Soporte :s (Codigo error 101)", "error");
                     break;
                 case '9':
-                    swal("Upps...", "Contraseña Incorrecta... \n Intenta de Nuevo :c", "error");
+                    swal("Upps...", "Contraseña Incorrecta... \n\n Intenta de Nuevo :c", "error");
                     break;
                 default:
-                    alert(r);
-                    swal("Upps...", "Ha ocurrido un error al conectar con el Servidor... \n Contacta a Soporte :s", "error");
+                    swal(r);
+                    swal("Upps...", "Ha ocurrido un error al conectar con el servidor! \n\n Contacta a Soporte :s (Codigo error 102)", "error");
                     break;
             }
         }
     });
+}
+
+//Función para envío de formulario con tecla enter
+document.querySelector('#formLogin').addEventListener('keypress', function(e) {
+    validar(e);
+})
+
+function validar(e) {
+    let tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla == 13) {
+        loginUser();
+    }
 }
