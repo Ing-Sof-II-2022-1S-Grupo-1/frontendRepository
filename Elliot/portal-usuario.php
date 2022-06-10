@@ -160,9 +160,9 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                     <img src="Resources/Images/Grupo 35.png " width="40% " style="float: right; margin-top: 50px; float: left " /><br /><br /><br /><br /><br /><br />
                     <ul class="list-unstyled mb-0 ">
                         <li><a href="inicio.html" class=" ">Inicio</a><br /></li>
-                        <li><a href="#!" class=" ">¿Quiénes Somos?</a><br /></li>
-                        <li><a href="#!" class=" ">Productos</a><br /></li>
-                        <li><a href="#!" class=" ">Planes</a><br /></li>
+                        <li><a href="quienes-somos.html" class=" ">¿Quiénes Somos?</a><br /></li>
+                        <li><a href="productos.html" class=" ">Productos</a><br /></li>
+                        <li><a href="planes.html" class=" ">Planes</a><br /></li>
                     </ul>
                 </div>
                 <!--Grid column-->
