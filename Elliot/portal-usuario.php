@@ -67,7 +67,9 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
 
         <span class="login">
             <a href="portal-usuario.php"><img src="Resources/Images/user_50px.png" width="30px" style="margin-right: 30px" /></a>
-            <img src="Resources/Images/phone_50px.png" width="30px" />
+            <a href="contacto.html">
+                <img src="Resources/Images/phone_50px.png" width="30px" />
+            </a>
         </span>
     </nav>
 
