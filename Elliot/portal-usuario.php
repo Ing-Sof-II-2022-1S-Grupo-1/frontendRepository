@@ -96,7 +96,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                         <a class="nav-link" id="texto-botones" href="#">Cámaras</a>
                     </li>
                     <li class="nav-item" style="margin-top: 20px; margin-bottom: 20px; margin-left: 10px;">
-                        <a class="nav-link" id="texto-botones" href="#">Relés</a>
+                        <a class="nav-link" id="texto-botones" href="#">Switches</a>
                     </li>
                     <li class="nav-item" style="margin-top: 20px; margin-left: 10px;">
                         <a class="nav-link" id="texto-botones" href="#">Sensores</a>
