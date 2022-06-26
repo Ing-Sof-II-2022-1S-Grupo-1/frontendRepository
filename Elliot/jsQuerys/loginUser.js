@@ -1,6 +1,7 @@
 function loginUser() {
     let nombre = '#formLogin';
     let datos = $(nombre).serialize();
+    document.getElementById("loginIngresar").disabled = true;
     $.ajax({
         type: "POST",
         url: "partials/loginUser.php",

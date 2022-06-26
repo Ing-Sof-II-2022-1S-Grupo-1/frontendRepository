@@ -19,13 +19,14 @@ try {
             $_SESSION['user'] = $fetch->usernameUsuario;
             $_SESSION['nombres'] = $fetch->nombresUsuario;
             $_SESSION['apellidos'] = $fetch->apellidosUsuario;
+            $_SESSION['mail'] = $fetch->correoUsuario;
 
             //Cancelamos el token de la base de datos para evitar cambios indeseados de contraseñas
             $result2 = $conn->query("UPDATE usuario 
                                         SET tokenUsuarioEstado = '0' 
                                         WHERE (usernameUsuario='$usuario');");
-
-
+                                        
+            require_once "emailIngreso.php";
             echo 1; //Indica que el usuario se autenticó correctamente
         } else {
             echo 9; //Indica que existe el usuario pero la contraseña es incorrecta
