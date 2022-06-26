@@ -82,7 +82,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
         </div>
 
         <span class="login">
-            <a href="portal-usuario.php"><img src="Resources/Images/user_50px.png" width="30px" style="margin-right: 30px" /></a>
+            <a href="Panel-Administración.php"><img src="Resources/Images/user_50px.png" width="30px" style="margin-right: 30px" /></a>
             <a href="contacto.html">
                 <img src="Resources/Images/phone_50px.png" width="30px" /></a>
         </span>
@@ -92,7 +92,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
         <div class="row" style="max-height: 100px;">
             <div class="col-12" style=" margin-top: 50px; margin-bottom: 50px; ">
                 <h2 style="margin-top:10%; margin-bottom: 40px; display: inline;">
-                    Portal de usuario
+                    Portal de Usuario
                 </h2>
                 <a href="#" onclick="logout();">
                     <img src="Resources/Images/option.png" width="30px" style="margin-bottom: 40px; float: right;" />
