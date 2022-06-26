@@ -137,7 +137,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                         Dashboard
                     </h2>
                     <p style="margin-bottom: 40px; margin-top: 30px; margin-left: 30px;">
-                        Bienvenido al <b>Portal de usuario de Elliot</b>, desde aquí podrá controlar todos los dispositivos que tenga asociados, además de adicionar o eliminar los ya existentes.
+                        Bienvenido al <b>Portal de Usuario de Eliot</b>, desde aquí podrá controlar todos los dispositivos que tenga asociados, además de adicionar o eliminar los ya existentes.
                     </p>
 
                     <center>
@@ -154,7 +154,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
 
                         <div class="card" style="width: 18rem; display: inline-block; margin-left: 60px; margin-right: 60px;">
                             <div class="card-body">
-                                <h5 class="card-title">El alza de los CCTV´s en el último año</h5>
+                                <h5 class="card-title">El alza de los CCTV's en el último año</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn">Leer más</a>
                             </div>
@@ -182,10 +182,10 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <p>Nombres y apellidos</p>
+                                    <p>Nombres y Apellidos</p>
                                 </th>
                                 <td>
-                                    <p>Nombre aquí</p>
+                                    <p><?php echo $_SESSION['nombres'] . ' ' . $_SESSION['apellidos']; ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -193,7 +193,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                                     <p>Usuario</p>
                                 </th>
                                 <td>
-                                    <p>Usuario aquí</p>
+                                    <p><?php echo $_SESSION['user']; ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -201,7 +201,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                                     <p>Correo electrónico</p>
                                 </th>
                                 <td>
-                                    <p>Correo aquí</p>
+                                    <p><?php echo $_SESSION['mail']; ?></p>
                                 </td>
                             </tr>
                             <tr>
@@ -209,16 +209,18 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                                     <p>Plan actual</p>
                                 </th>
                                 <td>
-                                    <p>Plan aquí</p>
+                                    <p>Gratuito</p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
                     <center>
-                        <button type="button" class="btn btn-default" aria-label="Right Align" style=" margin-left: 40px;">
-                            <span class="" aria-hidden="true"></span> MEJORAR MI PLAN
-                        </button>
+                        <a href="planes.html">
+                            <button type="button" class="btn btn-default" aria-label="Right Align" style=" margin-left: 40px;">
+                                <span class="" aria-hidden="true"></span> MEJORAR MI PLAN
+                            </button>
+                        </a>
                     </center>
 
                 </div>
@@ -607,7 +609,6 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
 
 
                 </div>
-
                 <!-- Reles -->
 
                 <!-- Sensores -->
