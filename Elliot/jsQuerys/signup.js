@@ -69,6 +69,6 @@ document.querySelector('#formLogin').addEventListener('keypress', function(e) {
 function validar(e) {
     let tecla = (document.all) ? e.keyCode : e.which;
     if (tecla == 13) {
-        loginUser();
+        crearUsuario();
     }
 }
