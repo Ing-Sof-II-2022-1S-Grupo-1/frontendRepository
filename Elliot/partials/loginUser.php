@@ -25,8 +25,10 @@ try {
             $result2 = $conn->query("UPDATE usuario 
                                         SET tokenUsuarioEstado = '0' 
                                         WHERE (usernameUsuario='$usuario');");
-                                        
-            require_once "emailIngreso.php";
+
+            // Correo Ingreo
+            // require_once "emailIngreso.php";
+
             echo 1; //Indica que el usuario se autenticó correctamente
         } else {
             echo 9; //Indica que existe el usuario pero la contraseña es incorrecta
