@@ -807,16 +807,17 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                         <li><a href="quienes-somos.html" class=" ">¿Quiénes Somos?</a><br /></li>
                         <li><a href="productos.html" class=" ">Productos</a><br /></li>
                         <li><a href="planes.html" class=" ">Planes</a><br /></li>
+                        <li><a href="politica-privacidad.html" class=" ">Nuestra política de privacidad</a><br /></li>
                     </ul>
                 </div>
                 <!--Grid column-->
 
                 <!--Grid column-->
-                <div class="col-8 " style="margin-top: 50px ">
-                    <h5 class="text-uppercase mb-0 ">Información de contacto</h5>
+                <div class="col-8" style="margin-top: 50px">
+                    <h5 class="text-uppercase mb-0">Información de contacto</h5>
                     <br /><br />
 
-                    <ul class="list-unstyled ">
+                    <ul class="list-unstyled">
                         <li>
                             <a href="#! " class="text-dark ">Colombia</a>
                         </li>
