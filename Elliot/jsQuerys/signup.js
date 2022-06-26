@@ -41,6 +41,14 @@ function crearUsuario() {
         success: function(r) {
             switch (r) {
                 case '1':
+                    $.ajax({
+                        type: "POST",
+                        url: "partials/emailRegistro.php",
+                        data: datos,
+                        success: function(r) {
+
+                        }
+                    });
                     swal("Perfecto", "A tu correo llegó un link confirmando la creación de tu cuenta \n Consulta tu Bandeja de Entrada e inicia sesión :D", "success")
                         .then((value) => {
                             location.href = "index.php";
@@ -69,6 +77,6 @@ document.querySelector('#formLogin').addEventListener('keypress', function(e) {
 function validar(e) {
     let tecla = (document.all) ? e.keyCode : e.which;
     if (tecla == 13) {
-        loginUser();
+        crearUsuario();
     }
 }
