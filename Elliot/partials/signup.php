@@ -1,39 +1,29 @@
 <?php
-try {
-    require "../modules/dbUpdate.php";     //Incorporamos el código para consultas Delete
-    $nombresUsuario = $_POST['nombres'] ?? '';     //Extraemos del serializado el valor de la variable
-    $apellidosUsuario = $_POST['apellidos'] ?? '';
-    $usernameUsuario = $_POST['username'] ?? '';
-    $correoUsuario = $_POST['email'] ?? '';
-    $passwordUsuario = $_POST['password'] ?? '';
+$nombresUsuario = $_POST['nombres'] ?? '';     //Extraemos del serializado el valor de la variable
+$apellidosUsuario = $_POST['apellidos'] ?? '';
+$usernameUsuario = $_POST['username'] ?? '';
+$correoUsuario = $_POST['email'] ?? '';
+$passwordUsuario = $_POST['password'] ?? '';
 
+if (empty($nombresUsuario)) {
+     die("Acceso No Autorizado!!!");
+}
+
+try {
+    require "../modules/dbInsert.php";     //Incorporamos el código para consultas Delete
     //Preparamos la consulta y la realizamos
     $result = $conn->query("SELECT * from usuario 
-                                WHERE usernameUsuario='$usuario';");
+                                WHERE usernameUsuario='$usernameUsuario' 
+                                OR correoUsuario='$correoUsuario';");
     $numfilas = $result->num_rows;
     if ($numfilas >= 1) {
         echo 9; //Indica que existe el Usuario
     } else {
-        $fetch = $result->fetch_object();
-        //if (password_verify($contrasena, $fetch->passwordUsuario)) {
-        if ($contrasena == $fetch->passwordUsuario) {
-        //if (true) {
-            session_start();
-            $_SESSION['idUser'] = $fetch->idUsuario;
-            $_SESSION['user'] = $fetch->usernameUsuario;
-            $_SESSION['nombres'] = $fetch->nombresUsuario;
-            $_SESSION['apellidos'] = $fetch->apellidosUsuario;
-
-            //Cancelamos el token de la base de datos para evitar cambios indeseados de contraseñas
-            $result2 = $conn->query("UPDATE usuario 
-                                        SET tokenUsuarioEstado = '0' 
-                                        WHERE (usernameUsuario='$usuario');");
-
-
-            echo 1; //Indica que el usuario se autenticó correctamente
-        } else {
-            echo 9; //Indica que existe el usuario pero la contraseña es incorrecta
-        }
+        $passwordUsuario = password_hash($passwordUsuario, PASSWORD_BCRYPT);
+        $token = bin2hex(random_bytes((30 - (30 % 2)) / 2)); //token de longitud = 30
+        $result2 = $conn->query("INSERT INTO usuario (`nombresUsuario`, `apellidosUsuario`, `usernameUsuario`, `correoUsuario`, `passwordUsuario`, `estadoUsuario`, `tokenUsuario`, `tokenUsuarioEstado`) 
+                                         VALUES ('$nombresUsuario', '$apellidosUsuario', '$usernameUsuario', '$correoUsuario', '$passwordUsuario', '1', '$token', '0');");
+        echo 1;
     }
     cerrarConexion();  //Finalizamos la conexión
 } catch (Exception $e) {

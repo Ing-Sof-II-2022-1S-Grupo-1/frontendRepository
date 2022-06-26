@@ -12,9 +12,8 @@ try {
         echo 0; //Indica que no existe el Usuario
     } else {
         $fetch = $result->fetch_object();
-        //if (password_verify($contrasena, $fetch->passwordUsuario)) {
-        if ($contrasena == $fetch->passwordUsuario) {
-        //if (true) {
+        if (password_verify($contrasena, $fetch->passwordUsuario)) {
+            //if ($contrasena == $fetch->passwordUsuario) {
             session_start();
             $_SESSION['idUser'] = $fetch->idUsuario;
             $_SESSION['user'] = $fetch->usernameUsuario;

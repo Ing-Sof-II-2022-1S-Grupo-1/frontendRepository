@@ -11,8 +11,10 @@ function generateToken($longitud)
 $token = generateToken(30);
 echo $token;
 ?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -33,7 +35,6 @@ echo $token;
         } else{
             result.innerHTML = "";
         }
-        
     };
 </script>
 
