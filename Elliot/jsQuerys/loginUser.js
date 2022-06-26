@@ -14,7 +14,7 @@ function loginUser() {
                 case '1':
                     swal("Perfecto", "Sesión iniciada con exito :D", "success")
                         .then((value) => {
-                            location.href = "portal-usuario.php";
+                            location.href = "Panel-Administración.php";
                         });
                     break;
                 case '2':

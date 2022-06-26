@@ -22,8 +22,8 @@ try {
         $passwordUsuario = password_hash($passwordUsuario, PASSWORD_BCRYPT);
         $token = bin2hex(random_bytes((30 - (30 % 2)) / 2)); //token de longitud = 30
         $result2 = $conn->query("INSERT INTO usuario (`nombresUsuario`, `apellidosUsuario`, `usernameUsuario`, `correoUsuario`, `passwordUsuario`, `estadoUsuario`, `tokenUsuario`, `tokenUsuarioEstado`) 
-                                         VALUES ('$nombresUsuario', '$apellidosUsuario', '$usernameUsuario', '$correoUsuario', '$passwordUsuario', '1', '$token', '0');");
-        echo 1;
+                                         VALUES ('$nombresUsuario', '$apellidosUsuario', '$usernameUsuario', '$correoUsuario', '$passwordUsuario', '1', '$token', '0');");                                         
+        echo 1; //Todo correcto :D
     }
     cerrarConexion();  //Finalizamos la conexión
 } catch (Exception $e) {

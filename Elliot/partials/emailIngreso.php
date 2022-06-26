@@ -14,7 +14,7 @@ $mensaje = '
 Hola! 
 </p>
 <p>
-Se ha ingresado a tu cuenta en la fecha ' . $hoy . '
+Se ha ingresado a tu cuenta en la fecha ' . $hoy . ' 
 </p>
 <p>
 Si eres tu, omite este mensaje. </p>
