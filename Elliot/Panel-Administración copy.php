@@ -221,6 +221,11 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                                 <span class="" aria-hidden="true"></span> MEJORAR MI PLAN
                             </button>
                         </a>
+                        <a href="changePassword.php">
+                            <button type="button" class="btn btn-default" aria-label="Right Align" style=" margin-left: 40px;">
+                                <span class="" aria-hidden="true"></span> CAMBIAR CONTRASEÑA
+                            </button>
+                        </a>
                     </center>
 
                 </div>
@@ -247,7 +252,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                         </span>
                         <div class="multi-collapse collapse" id="collapseExample" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
                             <p>Feed de la cámara 1 se ve en el iframe:</p>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qM19eRgOK1Q?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="850" height="650" src="https://c512-2800-e2-5680-2a59-b9c6-a15f-68b-146a.ngrok.io/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="multi-collapse collapse" id="collapseExample2" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
                             <p>Feed de la cámara 2 se ve en el iframe:</p>

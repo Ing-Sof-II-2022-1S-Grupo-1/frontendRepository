@@ -1,4 +1,7 @@
 <?php
+
+require "modules/dbDelete.php";
+
 session_start();
 if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
     header('Location: login.html');
@@ -221,11 +224,6 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                                 <span class="" aria-hidden="true"></span> MEJORAR MI PLAN
                             </button>
                         </a>
-                        <a href="changePassword.php">
-                            <button type="button" class="btn btn-default" aria-label="Right Align" style=" margin-left: 40px;">
-                                <span class="" aria-hidden="true"></span> CAMBIAR CONTRASEÑA
-                            </button>
-                        </a>
                     </center>
 
                 </div>
@@ -252,7 +250,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                         </span>
                         <div class="multi-collapse collapse" id="collapseExample" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
                             <p>Feed de la cámara 1 se ve en el iframe:</p>
-                            <iframe width="850" height="650" src="https://c512-2800-e2-5680-2a59-b9c6-a15f-68b-146a.ngrok.io/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qM19eRgOK1Q?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="multi-collapse collapse" id="collapseExample2" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
                             <p>Feed de la cámara 2 se ve en el iframe:</p>
@@ -267,21 +265,85 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
 
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <table id="productTable" class="table table-bordered table-condensed table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Editar</th>
-                                                    <th>Nombre de cámara</th>
-                                                    <th>Dirección IP</th>
-                                                    <th>Estado</th>
-                                                    <th>Eliminar</th>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-                                </div>
+                                <div class="col-9">
+                <?php
+                //Conectamos para obtener la lista de personas
+                $idUsusario = $_SESSION['idUser'] ?? ''; 
+                $query = "SELECT * FROM camara WHERE CCTV_idCCTV = (SELECT idCCTV FROM cctv WHERE Usuario_idUsuario = '$idUsusario');";
+                $result = $conn->query($query);
+                $numfilas = $result->num_rows;
+                if ($numfilas > 0) {
+                ?>
+                    <!-- Tabla de Registros -->
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <center>ID</center>
+                                </th>
+                                <th scope="col">
+                                    <center>IP</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Alias</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Serial</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Marca</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Modelo</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Estado</center>
+                                </th>
+                                <th scope="col">
+                                    <center>CCTV Asociado</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Editar</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Eliminar</center>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            for ($i = 0; $i < $numfilas; $i++) {
+                                $aux = $result->fetch_object();
+                            ?>
+                                <tr>
+                                    <form id="formVivienda<?php echo $aux->idCamara; ?>" method="POST">
+                                        <input type="hidden" name="idVivienda" value="<?php echo $aux->idCamara; ?>">
+                                        <th class="align-middle" scope="row"><?php echo $i + 1; ?></th>
+                                        <td class="align-middle"><input name="IP" id="IP" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->direccionIPCamara; ?>"></td>
+                                        <td class="align-middle"><input name="Alias" id="Alias" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->aliasCamara; ?>"></td>
+                                        <td class="align-middle"><input name="Serial" id="Serial" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->codigoSNCamara; ?>"></td>
+                                        <td class="align-middle"><input name="Marca" id="Marca" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->marcaCamara; ?>"></td>
+                                        <td class="align-middle"><input name="Modelo" id="Modelo" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->modeloCamara; ?>"></td>
+                                        <td class="align-middle"><input name="Estado" id="Estado" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="number" value="<?php echo $aux->estadoCamara; ?>"></td>
+                                        <td class="align-middle"><input name="CCTVAsociado" id="CCTVAsociado" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="number" value="<?php echo $aux->CCTV_idCCTV; ?>"></td>
+                                        <td class="align-middle"><button type="button" onclick="updateCam();" class="btn btn-primary">Actualizar</button></td>
+                                        <td class="align-middle"><button type="button" onclick="deleteCamara();" class="btn btn-primary">Borrar</button></td>
+                                    </form>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                <?php
+                } else {
+                ?>
+                    <h3>Upps... No hay camaras registradas</h3>
+                <?php
+                }
+                //cerrarConexion();
+                ?>
+            </div>
 
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -449,21 +511,73 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
 
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <table id="productTable" class="table table-bordered table-condensed table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Editar</th>
-                                            <th>Nombre relé</th>
-                                            <th>Dirección IP</th>
-                                            <th>Estado</th>
-                                            <th>Eliminar</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
+                        <div class="col-9">
+                <?php
+                //Conectamos para obtener la lista de personas
+                $idUsusario = $_SESSION['idUser'] ?? ''; 
+                $query = "SELECT * FROM switch WHERE CCTV_idCCTV = (SELECT idCCTV FROM cctv WHERE Usuario_idUsuario = '$idUsusario');";
+                $result = $conn->query($query);
+                $numfilas = $result->num_rows;
+                if ($numfilas > 0) {
+                ?>
+                    <!-- Tabla de Registros -->
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <center>ID</center>
+                                </th>
+                                <th scope="col">
+                                    <center>IP</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Alias</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Estado</center>
+                                </th>
+                                <th scope="col">
+                                    <center>CCTV Asociado</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Editar</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Eliminar</center>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            for ($i = 0; $i < $numfilas; $i++) {
+                                $aux = $result->fetch_object();
+                            ?>
+                                <tr>
+                                    <form id="formVivienda<?php echo $aux->idSwitch; ?>" method="POST">
+                                        <input type="hidden" name="idVivienda" value="<?php echo $aux->idSwitch; ?>">
+                                        <th class="align-middle" scope="row"><?php echo $i + 1; ?></th>
+                                        <td class="align-middle"><input name="IP" id="IP" class="form-control" form="formVivienda<?php echo $aux->idSwitch; ?>" type="text" value="<?php echo $aux->direccionIPSwitch; ?>"></td>
+                                        <td class="align-middle"><input name="Alias" id="Alias" class="form-control" form="formVivienda<?php echo $aux->idSwitch; ?>" type="text" value="<?php echo $aux->aliasSwitch; ?>"></td>
+                                        <td class="align-middle"><input name="Estado" id="Estado" class="form-control" form="formVivienda<?php echo $aux->idSwitch; ?>" type="number" value="<?php echo $aux->estadoSwitch; ?>"></td>
+                                        <td class="align-middle"><input name="CCTVAsociado" id="CCTVAsociado" class="form-control" form="formVivienda<?php echo $aux->idSwitch; ?>" type="number" value="<?php echo $aux->CCTV_idCCTV; ?>"></td>
+                                        <td class="align-middle"><button type="button" onclick="updateSwitch();" class="btn btn-primary">Actualizar</button></td>
+                                        <td class="align-middle"><button type="button" onclick="deleteSwitch();" class="btn btn-primary">Borrar</button></td>
+                                    </form>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                <?php
+                } else {
+                ?>
+                    <h3>Upps... No hay camaras registradas</h3>
+                <?php
+                }
+                //cerrarConexion();
+                ?>
+            </div>
 
                         <div class="row">
                             <div class="col-sm-6">
@@ -629,21 +743,77 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
 
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <table id="productTable" class="table table-bordered table-condensed table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Editar</th>
-                                            <th>Nombre del sensor</th>
-                                            <th>Dirección IP</th>
-                                            <th>Estado</th>
-                                            <th>Eliminar</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
+                        <div class="col-9">
+                <?php
+                //Conectamos para obtener la lista de personas
+                $idUsusario = $_SESSION['idUser'] ?? ''; 
+                $query = "SELECT * FROM sensor WHERE CCTV_idCCTV = (SELECT idCCTV FROM cctv WHERE Usuario_idUsuario = '$idUsusario');";
+                $result = $conn->query($query);
+                $numfilas = $result->num_rows;
+                if ($numfilas > 0) {
+                ?>
+                    <!-- Tabla de Registros -->
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <center>ID</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Alias</center>
+                                </th>
+                                <th scope="col">
+                                    <center>IP</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Datos</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Estado</center>
+                                </th>
+                                <th scope="col">
+                                    <center>CCTV Asociado</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Editar</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Eliminar</center>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            for ($i = 0; $i < $numfilas; $i++) {
+                                $aux = $result->fetch_object();
+                            ?>
+                                <tr>
+                                    <form id="formVivienda<?php echo $aux->idSensor; ?>" method="POST">
+                                        <input type="hidden" name="idVivienda" value="<?php echo $aux->idSensor; ?>">
+                                        <th class="align-middle" scope="row"><?php echo $i + 1; ?></th>
+                                        <td class="align-middle"><input name="Alias" id="Alias" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="text" value="<?php echo $aux->aliasSensor; ?>"></td>
+                                        <td class="align-middle"><input name="IP" id="IP" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="text" value="<?php echo $aux->direccionIPSensor; ?>"></td>
+                                        <td class="align-middle"><input name="Datos" id="Datos" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="text" value="<?php echo $aux->datosSensor; ?>"></td>
+                                        <td class="align-middle"><input name="Estado" id="Estado" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="number" value="<?php echo $aux->estadoSensor; ?>"></td>
+                                        <td class="align-middle"><input name="CCTVAsociado" id="CCTVAsociado" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="number" value="<?php echo $aux->CCTV_idCCTV; ?>"></td>
+                                        <td class="align-middle"><button type="button" onclick="updateCam();" class="btn btn-primary">Actualizar</button></td>
+                                        <td class="align-middle"><button type="button" onclick="deleteCamara();" class="btn btn-primary">Borrar</button></td>
+                                    </form>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                <?php
+                } else {
+                ?>
+                    <h3>Upps... No hay camaras registradas</h3>
+                <?php
+                }
+                //cerrarConexion();
+                ?>
+            </div>
 
                         <div class="row">
                             <div class="col-sm-6">
