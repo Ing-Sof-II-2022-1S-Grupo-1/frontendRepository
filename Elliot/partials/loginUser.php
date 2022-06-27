@@ -27,7 +27,7 @@ try {
                                         WHERE (usernameUsuario='$usuario');");
 
             // Correo Ingreo
-            // require_once "emailIngreso.php";
+            require_once "emailIngreso.php";
 
             echo 1; //Indica que el usuario se autenticó correctamente
         } else {

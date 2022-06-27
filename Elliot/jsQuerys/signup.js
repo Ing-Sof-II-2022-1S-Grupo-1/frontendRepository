@@ -41,13 +41,13 @@ function crearUsuario() {
         success: function(r) {
             switch (r) {
                 case '1':
-                    /* Envio Correo Creacion cuenta
+                    //Envio Correo Creacion cuenta
                     $.ajax({
                         type: "POST",
                         url: "partials/emailRegistro.php",
                         data: datos,
                         success: function(r) {}
-                    });*/
+                    });
                     swal("Perfecto", "A tu correo llegó un link confirmando la creación de tu cuenta \n Consulta tu Bandeja de Entrada e inicia sesión :D", "success")
                         .then((value) => {
                             location.href = "index.php";
