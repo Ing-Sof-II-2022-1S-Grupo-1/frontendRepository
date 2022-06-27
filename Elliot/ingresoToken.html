@@ -96,22 +96,19 @@
                     <form id="formLogin" method="POST">
 
                         <div class="divider d-flex align-items-center my-4">
-                            <p class="text-center fw-bold mx-3 mb-0">Ingresa el Correo Registrado</p>
+                            <p class="text-center fw-bold mx-3 mb-0">Ingresa el Token</p>
                         </div>
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder="Ingrese su Email" />
-                            <label class="form-label" for="email">Email Registrado</label>
+                            <input type="text" id="token" name="token" class="form-control form-control-lg" placeholder="Ingrese el token" />
+                            <label class="form-label" for="email">Ingresa el Token que se envió al correo registrado</label>
                         </div>
 
                         <div class="text-center text-lg-start mt-4 pt-2">
-                            <button id="envioEmail" type="button" onclick="recuperarCuenta();" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">
-                                Enviar
+                            <button id="envioEmail" type="button" onclick="verificarToken();" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">
+                                Enviar Token
                             </button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">
-                                <a href="login.html" class="m-3 link-danger">¿Ya recordaste tus credenciales?</a>
-                            </p>
                         </div>
                     </form>
                 </div>
@@ -175,7 +172,7 @@
 </body>
 
 <!-- auteticación de Usuario -->
-<script src="jsQuerys/recuperarContrasena.js"></script>
+<script src="jsQuerys/verificarToken.js"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

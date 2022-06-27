@@ -19,8 +19,8 @@ function equalPassword() {
     }
 }
 
-function crearUsuario() {
-    if (nombres.value == "" || apellidos.value == "" || email.value == "" || username.vale == "" || password.value == "") {
+function cambiarPassword() {
+    if (password.value == "") {
         swal("Upps...", "Llena el formulario antes de enviar la información!", "warning");
         return false;
     }
@@ -36,28 +36,24 @@ function crearUsuario() {
     let datos = $(nombre).serialize();
     $.ajax({
         type: "POST",
-        url: "partials/signUp.php",
+        url: "partials/cambioPassword.php",
         data: datos,
         success: function(r) {
             switch (r) {
                 case '1':
-                    /* Envio Correo Creacion cuenta
                     $.ajax({
                         type: "POST",
-                        url: "partials/emailRegistro.php",
+                        url: "partials/emailCambioPassword.php",
                         data: datos,
                         success: function(r) {}
-                    });*/
-                    swal("Perfecto", "A tu correo llegó un link confirmando la creación de tu cuenta \n Consulta tu Bandeja de Entrada e inicia sesión :D", "success")
+                    });
+                    swal("Perfecto", "Contraseña cambiada con éxito", "success")
                         .then((value) => {
-                            location.href = "index.php";
+                            location.href = "Panel-Administración.php";
                         });
                     break;
                 case '2':
                     swal("Upps...", "Ha ocurrido un error al conectar con la Base de Datos...\n\n Contacta a Soporte :s (Codigo error S101)", "error");
-                    break;
-                case '9':
-                    swal("Upps...", "El Usuario ya existe...\n\nPrueba ingresando al Sistema o recuperando tu cuenta :s", "warning");
                     break;
                 default:
                     swal(r);
@@ -76,6 +72,6 @@ document.querySelector('#formLogin').addEventListener('keypress', function(e) {
 function validar(e) {
     let tecla = (document.all) ? e.keyCode : e.which;
     if (tecla == 13) {
-        crearUsuario();
+        cambiarPassword();
     }
 }

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
+    header('Location: login.html');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -99,11 +106,8 @@
                             <p class="text-center fw-bold mx-3 mb-0">Cambio de contraseña</p>
                         </div>
 
-                        <!-- Email input -->
-                        <div class="form-outline mb-4">
-                            <input type="text" name="username" id="username" class="form-control form-control-lg" placeholder="Ingrese su Usuario" />
-                            <label class="form-label" for="username">Username</label>
-                        </div>
+                        <input type="hidden" name="username" id="username" value="<?php echo $_SESSION['user'];?>">
+                        <input type="hidden" name="mail" id="mail" value="<?php echo $_SESSION['mail'];?>">
 
                         <!-- Password input -->
                         <div class="form-outline mb-3">
@@ -114,16 +118,14 @@
                             </div>
                         </div>
 
-                        <!-- Password input -->
+                        <!-- confirmPassword input -->
                         <div class="form-outline mb-3">
-                            <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Ingrese su Contraseña" />
-                            <label class="form-label" for="password">Confirmar nueva contraseña</label>
+                            <input type="password" name="confirmPassword" id="confirmPassword" class="form-control form-control-lg" placeholder="Confirme su Contraseña" />
+                            <label class="form-label" for="confirmPassword">Confirmar Nueva contraseña</label>
                         </div>
 
-
-
                         <div class="text-center text-lg-start mt-4 pt-2">
-                            <button type="button" onclick="" class="btn  btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">
+                            <button type="button" onclick="cambiarPassword();" class="btn  btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">
                                 Cambiar Contraseña
                             </button>
                         </div>
@@ -189,7 +191,7 @@
 </body>
 
 <!-- auteticación de Usuario -->
-<script src="jsQuerys/loginUser.js"></script>
+<script src="jsQuerys/changePassword.js"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
