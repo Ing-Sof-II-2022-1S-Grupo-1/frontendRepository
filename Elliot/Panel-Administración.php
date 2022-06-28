@@ -120,15 +120,12 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                         <li class="nav-item" style="margin-top: 20px; margin-bottom: 20px; margin-left: 10px;">
                             <a class="nav-link active" id="texto-botones" data-bs-toggle="collapse" href="#camaras" aria-controls="camaras" data-bs-parent="#myGroup" aria-expanded="false">Cámaras</a>
                         </li>
-                        <li class="nav-item" style="margin-top: 20px; margin-bottom: 20px; margin-left: 10px;">
-                            <a class="nav-link active" id="texto-botones" data-bs-toggle="collapse" href="#reles" aria-controls="reles" data-bs-parent="#myGroup" aria-expanded="false">Relés</a>
-                        </li>
-                        <li class="nav-item" style="margin-top: 20px; margin-left: 10px;">
-                            <a class="nav-link active" id="texto-botones" data-bs-toggle="collapse" href="#sensores" aria-controls="sensores" data-bs-parent="#myGroup" aria-expanded="false">Sensores</a>
-                        </li>
                         <div class="divider d-flex align-items-center my-4"></div>
                         <li class="nav-item" style=" margin-bottom: 30px; margin-left: 10px;">
                             <a class="nav-link" href="contacto.html" tabindex="-1" aria-disabled="true" id="texto-botones">Ayuda</a>
+                        </li>
+                        <li class="nav-item" style=" margin-bottom: 30px; margin-left: 10px;">
+                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" id="texto-botones" onclick="logout();">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -150,24 +147,24 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                         <div class="card" style="width: 18rem; display: inline-block; margin-left: 30px;">
                             <div class="card-body">
                                 <h5 class="card-title">Compromiso con la seguridad</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn">Leer más</a>
+                                <p class="card-text">La seguridad es fundamental, y debe guiar todas nuestras acciones y compromisos.</p>
+                                <a href="quienes-somos.html" class="btn">Leer más</a>
                             </div>
                         </div>
 
                         <div class="card" style="width: 18rem; display: inline-block; margin-left: 60px; margin-right: 60px;">
                             <div class="card-body">
                                 <h5 class="card-title">El alza de los CCTV's en el último año</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn">Leer más</a>
+                                <p class="card-text">La seguridad presencial y tecnológica aumentó un 50% en 2021, se presume que más.</p>
+                                <a href="productos.html" class="btn">Leer más</a>
                             </div>
                         </div>
 
                         <div class="card" style="width: 18rem; display: inline-block">
                             <div class="card-body">
                                 <h5 class="card-title">Criptografía: Pilar de la seguridad</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn">Leer más</a>
+                                <p class="card-text">Pilar esencial para garantizar la seguridad de cualquier comunicación que se realice.</p>
+                                <a href="planes.html" class="btn">Leer más</a>
                             </div>
                         </div>
                     </center>
@@ -224,6 +221,11 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                                 <span class="" aria-hidden="true"></span> MEJORAR MI PLAN
                             </button>
                         </a>
+                        <a href="changePassword.php">
+                            <button type="button" class="btn btn-default" aria-label="Right Align" style=" margin-left: 40px;">
+                                <span class="" aria-hidden="true"></span> CAMBIAR CONTRASEÑA
+                            </button>
+                        </a>
                     </center>
 
                 </div>
@@ -237,732 +239,184 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                     </h2>
 
                     <div id="myGroup2">
+
                         <span style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;">
+                            <!--Camara 1-->
                             <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" data-bs-parent="#myGroup2">
-                                Camara 1
+                                Cámara 1
                             </button>
+                            <!--Camara 2-->
                             <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" data-bs-parent="#myGroup2">
-                                Camara 2
+                                Cámara 2
                             </button>
+                            <!--Añadir Cámara-->
                             <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" data-bs-parent="#myGroup2" style="float: right;">
-                                Añadir cámara
+                                +
                             </button>
                         </span>
+
+                        <!--Camara 1-->
                         <div class="multi-collapse collapse" id="collapseExample" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
-                            <p>Feed de la cámara 1 se ve en el iframe:</p>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qM19eRgOK1Q?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>Feed de la cámara 1:</p>
+                            <iframe width="850" height="650" src="https://c512-2800-e2-5680-2a59-b9c6-a15f-68b-146a.ngrok.io/" title="Camera video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
+                        <!--Camara 2-->
                         <div class="multi-collapse collapse" id="collapseExample2" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
-                            <p>Feed de la cámara 2 se ve en el iframe:</p>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qM19eRgOK1Q?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>Feed de la cámara 2:</p>
+                            <iframe width="850" height="650" src="https://www.youtube.com/embed/qM19eRgOK1Q?controls=0" title="Camera video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
+
+
+
                         <div class="multi-collapse collapse" id="collapseExample3" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
                             <h2>Listado y añadir cámaras</h2>
 
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-sm-6">
-
-                                    </div>
+                                    <?php
+                                    //Conectamos para obtener la lista de camaras
+                                    $idUsusario = $_SESSION['idUser'] ?? '';
+                                    $query = "SELECT * FROM camara WHERE CCTV_idCCTV = (SELECT idCCTV FROM cctv WHERE Usuario_idUsuario = '$idUsusario');";
+                                    $result = $conn->query($query);
+                                    $numfilas = $result->num_rows;
+                                    if ($numfilas > 0) {
+                                    ?>
+                                        <!-- Tabla de Registros -->
+                                        <table class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">
+                                                        <center>Driección IP</center>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <center>Alias</center>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <center>Serial</center>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <center>Marca</center>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <center>Modelo</center>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <center>Estado</center>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <center>Guardar</center>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <center>Eliminar</center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                for ($i = 0; $i < $numfilas; $i++) {
+                                                    $aux = $result->fetch_object();
+                                                ?>
+                                                    <tr>
+                                                        <form id="formActualizarCamara<?php echo $aux->idCamara; ?>" method="POST">
+                                                            <input type="hidden" name="idCamara" value="<?php echo $aux->idCamara; ?>">
+                                                            <td class="align-middle"><input name="IP" id="IP" class="form-control" form="formActualizarCamara<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->direccionIPCamara; ?>"></td>
+                                                            <td class="align-middle"><input name="Alias" id="Alias" class="form-control" form="formActualizarCamara<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->aliasCamara; ?>"></td>
+                                                            <td class="align-middle"><input name="Serial" id="Serial" class="form-control" form="formActualizarCamara<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->codigoSNCamara; ?>"></td>
+                                                            <td class="align-middle"><input name="Marca" id="Marca" class="form-control" form="formActualizarCamara<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->marcaCamara; ?>"></td>
+                                                            <td class="align-middle"><input name="Modelo" id="Modelo" class="form-control" form="formActualizarCamara<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->modeloCamara; ?>"></td>
+                                                            <td class="align-middle">
+                                                                <div class="form-check form-switch">
+                                                                    <input class="form-check-input" type="checkbox" role="switch" name="estadoCamara" id="estadoCamara" form="formActualizarCamara<?php echo $aux->idCamara; ?>" <?php $check = $aux->estadoCamara == "1" ? "checked" : "";
+                                                                                                                                                                                                                                    echo $check; ?>>
+                                                                </div>
+                                                            </td>
+                                                            <td class="align-middle">
+                                                                <center>
+                                                                    <button type="button" onclick="updateCamara(<?php echo $aux->idCamara; ?>);" class="btn btn-primary">✔</button>
+                                                                </center>
+                                                            </td>
+                                                            <td class="align-middle">
+                                                                <center>
+                                                                    <button type="button" onclick="deleteCamara(<?php echo $aux->idCamara; ?>);" class="btn btn-primary">X</button>
+                                                                </center>
+                                                            </td>
+                                                        </form>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <h3>Upps... No hay camaras registradas</h3>
+                                    <?php
+                                    }
+                                    //cerrarConexion();
+                                    ?>
                                 </div>
-                                <div class="col-9">
-                <?php
-                //Conectamos para obtener la lista de personas
-                $idUsusario = $_SESSION['idUser'] ?? ''; 
-                $query = "SELECT * FROM camara WHERE CCTV_idCCTV = (SELECT idCCTV FROM cctv WHERE Usuario_idUsuario = '$idUsusario');";
-                $result = $conn->query($query);
-                $numfilas = $result->num_rows;
-                if ($numfilas > 0) {
-                ?>
-                    <!-- Tabla de Registros -->
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">
-                                    <center>ID</center>
-                                </th>
-                                <th scope="col">
-                                    <center>IP</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Alias</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Serial</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Marca</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Modelo</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Estado</center>
-                                </th>
-                                <th scope="col">
-                                    <center>CCTV Asociado</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Editar</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Eliminar</center>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            for ($i = 0; $i < $numfilas; $i++) {
-                                $aux = $result->fetch_object();
-                            ?>
-                                <tr>
-                                    <form id="formVivienda<?php echo $aux->idCamara; ?>" method="POST">
-                                        <input type="hidden" name="idVivienda" value="<?php echo $aux->idCamara; ?>">
-                                        <th class="align-middle" scope="row"><?php echo $i + 1; ?></th>
-                                        <td class="align-middle"><input name="IP" id="IP" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->direccionIPCamara; ?>"></td>
-                                        <td class="align-middle"><input name="Alias" id="Alias" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->aliasCamara; ?>"></td>
-                                        <td class="align-middle"><input name="Serial" id="Serial" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->codigoSNCamara; ?>"></td>
-                                        <td class="align-middle"><input name="Marca" id="Marca" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->marcaCamara; ?>"></td>
-                                        <td class="align-middle"><input name="Modelo" id="Modelo" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->modeloCamara; ?>"></td>
-                                        <td class="align-middle"><input name="Estado" id="Estado" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="number" value="<?php echo $aux->estadoCamara; ?>"></td>
-                                        <td class="align-middle"><input name="CCTVAsociado" id="CCTVAsociado" class="form-control" form="formVivienda<?php echo $aux->idCamara; ?>" type="number" value="<?php echo $aux->CCTV_idCCTV; ?>"></td>
-                                        <td class="align-middle"><button type="button" onclick="updateCam();" class="btn btn-primary">Actualizar</button></td>
-                                        <td class="align-middle"><button type="button" onclick="deleteCamara();" class="btn btn-primary">Borrar</button></td>
-                                    </form>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                <?php
-                } else {
-                ?>
-                    <h3>Upps... No hay camaras registradas</h3>
-                <?php
-                }
-                //cerrarConexion();
-                ?>
-            </div>
 
+                                <!-- Formulario crear cámara -->
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-7">
                                         <div class="panel panel-primary">
                                             <div class="panel-heading">
-                                                <h2>Información del componente</h2>
+                                                <h2>Añadir Cámara:</h2>
                                             </div>
                                             <div class="panel-body">
-                                                <div class="form-group">
-                                                    <label for="productname">
-                                                        Nombre de cámara
-                                                    </label>
-                                                    <input type="text" class="form-control" value=" " id="productname" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="introdate">
-                                                        Dirección IP
-                                                    </label>
-                                                    <input type="text" class="form-control" value=" " id="introdate" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="url">
-                                                        Estado
-                                                    </label>
-                                                    <input type="text" class="form-control" value=" " id="url" />
-                                                </div>
-                                            </div>
-                                            <div class="panel-footer">
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <button type="button" id="updateButton" class="btn " onclick="productUpdate();" style="margin-top: 20px;">
-                                                            Añadir
-                                                        </button>
+                                                <form id="formCamara">
+                                                    <div class="form-group">
+                                                        <label for="introdate">
+                                                            Dirección IP o WEB
+                                                        </label>
+                                                        <input type="text" class="form-control" id="crearDireccionIPCamara" name="crearDireccionIPCamara" />
                                                     </div>
-                                                </div>
+                                                    <div class="form-group">
+                                                        <label for="productname">
+                                                            Alias de la cámara
+                                                        </label>
+                                                        <input type="text" class="form-control" id="crearAliasCamara" name="crearAliasCamara" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="productname">
+                                                            Serial de la cámara
+                                                        </label>
+                                                        <input type="text" class="form-control" id="crearSerialCamara" name="crearSerialCamara" />
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label for="productname">
+                                                                Marca de la cámara
+                                                            </label>
+                                                            <input type="text" class="form-control" id="crearMarcaCamara" name="crearMarcaCamara" />
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="productname">
+                                                                Modelo de la cámara
+                                                            </label>
+                                                            <input type="text" form="formCamara" class="form-control" id="crearModeloCamara" name="crearModeloCamara" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <button type="button" class="btn" onclick="crearCamara();" style="margin-top: 20px;">
+                                                                Añadir Cámara
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-                            <script>
-                                // Next id for adding a new Product
-                                var nextId = 1;
-                                // ID of Product currently editing
-                                var activeId = 0;
-
-                                function productDisplay(ctl) {
-                                    var row = $(ctl).parents("tr");
-                                    var cols = row.children("td");
-
-                                    activeId = $($(cols[0]).children("button")[0]).data("id");
-                                    $("#productname").val($(cols[1]).text());
-                                    $("#introdate").val($(cols[2]).text());
-                                    $("#url").val($(cols[3]).text());
-
-                                    // Change Update Button Text
-                                    $("#updateButton").text("Update");
-                                }
-
-                                function productUpdate() {
-                                    if ($("#updateButton").text() == "Update") {
-                                        productUpdateInTable(activeId);
-                                    } else {
-                                        productAddToTable();
-                                    }
-
-                                    // Clear form fields
-                                    formClear();
-
-                                    // Focus to product name field
-                                    $("#productname").focus();
-                                }
-
-                                // Add product to <table>
-                                function productAddToTable() {
-                                    // First check if a <tbody> tag exists, add one if not
-                                    if ($("#productTable tbody").length == 0) {
-                                        $("#productTable").append("<tbody></tbody>");
-                                    }
-
-                                    // Append product to table
-                                    $("#productTable tbody").append(
-                                        productBuildTableRow(nextId));
-
-                                    // Increment next ID to use
-                                    nextId += 1;
-                                }
-
-                                // Update product in <table>
-                                function productUpdateInTable(id) {
-                                    // Find Product in <table>
-                                    var row = $("#productTable button[data-id='" + id + "']")
-                                        .parents("tr")[0];
-
-                                    // Add changed product to table
-                                    $(row).after(productBuildTableRow(id));
-                                    // Remove original product
-                                    $(row).remove();
-
-                                    // Clear form fields
-                                    formClear();
-
-                                    // Change Update Button Text
-                                    $("#updateButton").text("Add");
-                                }
-
-                                // Build a <table> row of Product data
-                                function productBuildTableRow(id) {
-                                    var ret =
-                                        "<tr>" +
-                                        "<td>" +
-                                        "<button type='button' " +
-                                        "onclick='productDisplay(this);' " +
-                                        "class='btn btn-default' " +
-                                        "data-id='" + id + "'>" +
-                                        "<span class='glyphicon glyphicon-edit' />" +
-                                        "</button>" +
-                                        "</td>" +
-                                        "<td>" + $("#productname").val() + "</td>" +
-                                        "<td>" + $("#introdate").val() + "</td>" +
-                                        "<td>" + $("#url").val() + "</td>" +
-                                        "<td>" +
-                                        "<button type='button' " +
-                                        "onclick='productDelete(this);' " +
-                                        "class='btn btn-default' " +
-                                        "data-id='" + id + "'>" +
-                                        "<span class='glyphicon glyphicon-remove' />" +
-                                        "</button>" +
-                                        "</td>" +
-                                        "</tr>"
-
-                                    return ret;
-                                }
-
-                                // Delete product from <table>
-                                function productDelete(ctl) {
-                                    $(ctl).parents("tr").remove();
-                                }
-
-                                // Clear form fields
-                                function formClear() {
-                                    $("#productname").val("");
-                                    $("#introdate").val("");
-                                    $("#url").val("");
-                                }
-                            </script>
-
-
                         </div>
-
                     </div>
                 </div>
                 <!-- Camaras -->
-
-                <!-- Reles -->
-                <div class="col multi-collapse collapse" class="collapse" id="reles" data-bs-parent="#myGroup" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px; ">
-
-                    <h2 style="margin-bottom: 30px; margin-left: 30px;">
-                        Relés
-                    </h2>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6">
-
-                            </div>
-                        </div>
-                        <div class="col-9">
-                <?php
-                //Conectamos para obtener la lista de personas
-                $idUsusario = $_SESSION['idUser'] ?? ''; 
-                $query = "SELECT * FROM switch WHERE CCTV_idCCTV = (SELECT idCCTV FROM cctv WHERE Usuario_idUsuario = '$idUsusario');";
-                $result = $conn->query($query);
-                $numfilas = $result->num_rows;
-                if ($numfilas > 0) {
-                ?>
-                    <!-- Tabla de Registros -->
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">
-                                    <center>ID</center>
-                                </th>
-                                <th scope="col">
-                                    <center>IP</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Alias</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Estado</center>
-                                </th>
-                                <th scope="col">
-                                    <center>CCTV Asociado</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Editar</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Eliminar</center>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            for ($i = 0; $i < $numfilas; $i++) {
-                                $aux = $result->fetch_object();
-                            ?>
-                                <tr>
-                                    <form id="formVivienda<?php echo $aux->idSwitch; ?>" method="POST">
-                                        <input type="hidden" name="idVivienda" value="<?php echo $aux->idSwitch; ?>">
-                                        <th class="align-middle" scope="row"><?php echo $i + 1; ?></th>
-                                        <td class="align-middle"><input name="IP" id="IP" class="form-control" form="formVivienda<?php echo $aux->idSwitch; ?>" type="text" value="<?php echo $aux->direccionIPSwitch; ?>"></td>
-                                        <td class="align-middle"><input name="Alias" id="Alias" class="form-control" form="formVivienda<?php echo $aux->idSwitch; ?>" type="text" value="<?php echo $aux->aliasSwitch; ?>"></td>
-                                        <td class="align-middle"><input name="Estado" id="Estado" class="form-control" form="formVivienda<?php echo $aux->idSwitch; ?>" type="number" value="<?php echo $aux->estadoSwitch; ?>"></td>
-                                        <td class="align-middle"><input name="CCTVAsociado" id="CCTVAsociado" class="form-control" form="formVivienda<?php echo $aux->idSwitch; ?>" type="number" value="<?php echo $aux->CCTV_idCCTV; ?>"></td>
-                                        <td class="align-middle"><button type="button" onclick="updateSwitch();" class="btn btn-primary">Actualizar</button></td>
-                                        <td class="align-middle"><button type="button" onclick="deleteSwitch();" class="btn btn-primary">Borrar</button></td>
-                                    </form>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                <?php
-                } else {
-                ?>
-                    <h3>Upps... No hay camaras registradas</h3>
-                <?php
-                }
-                //cerrarConexion();
-                ?>
-            </div>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h2>Información del componente</h2>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <label for="productname">
-                                                Nombre de relé
-                                            </label>
-                                            <input type="text" class="form-control" value=" " id="productname" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="introdate">
-                                                Dirección IP
-                                            </label>
-                                            <input type="text" class="form-control" value=" " id="introdate" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="url">
-                                                Estado
-                                            </label>
-                                            <input type="text" class="form-control" value=" " id="url" />
-                                        </div>
-                                    </div>
-                                    <div class="panel-footer">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <button type="button" id="updateButton" class="btn " onclick="productUpdate();" style="margin-top: 20px;">
-                                                    Añadir
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        // Next id for adding a new Product
-                        var nextId = 1;
-                        // ID of Product currently editing
-                        var activeId = 0;
-
-                        function productDisplay(ctl) {
-                            var row = $(ctl).parents("tr");
-                            var cols = row.children("td");
-
-                            activeId = $($(cols[0]).children("button")[0]).data("id");
-                            $("#productname").val($(cols[1]).text());
-                            $("#introdate").val($(cols[2]).text());
-                            $("#url").val($(cols[3]).text());
-
-                            // Change Update Button Text
-                            $("#updateButton").text("Update");
-                        }
-
-                        function productUpdate() {
-                            if ($("#updateButton").text() == "Update") {
-                                productUpdateInTable(activeId);
-                            } else {
-                                productAddToTable();
-                            }
-
-                            // Clear form fields
-                            formClear();
-
-                            // Focus to product name field
-                            $("#productname").focus();
-                        }
-
-                        // Add product to <table>
-                        function productAddToTable() {
-                            // First check if a <tbody> tag exists, add one if not
-                            if ($("#productTable tbody").length == 0) {
-                                $("#productTable").append("<tbody></tbody>");
-                            }
-
-                            // Append product to table
-                            $("#productTable tbody").append(
-                                productBuildTableRow(nextId));
-
-                            // Increment next ID to use
-                            nextId += 1;
-                        }
-
-                        // Update product in <table>
-                        function productUpdateInTable(id) {
-                            // Find Product in <table>
-                            var row = $("#productTable button[data-id='" + id + "']")
-                                .parents("tr")[0];
-
-                            // Add changed product to table
-                            $(row).after(productBuildTableRow(id));
-                            // Remove original product
-                            $(row).remove();
-
-                            // Clear form fields
-                            formClear();
-
-                            // Change Update Button Text
-                            $("#updateButton").text("Add");
-                        }
-
-                        // Build a <table> row of Product data
-                        function productBuildTableRow(id) {
-                            var ret =
-                                "<tr>" +
-                                "<td>" +
-                                "<button type='button' " +
-                                "onclick='productDisplay(this);' " +
-                                "class='btn btn-default' " +
-                                "data-id='" + id + "'>" +
-                                "<span class='glyphicon glyphicon-edit' />" +
-                                "</button>" +
-                                "</td>" +
-                                "<td>" + $("#productname").val() + "</td>" +
-                                "<td>" + $("#introdate").val() + "</td>" +
-                                "<td>" + $("#url").val() + "</td>" +
-                                "<td>" +
-                                "<button type='button' " +
-                                "onclick='productDelete(this);' " +
-                                "class='btn btn-default' " +
-                                "data-id='" + id + "'>" +
-                                "<span class='glyphicon glyphicon-remove' />" +
-                                "</button>" +
-                                "</td>" +
-                                "</tr>"
-
-                            return ret;
-                        }
-
-                        // Delete product from <table>
-                        function productDelete(ctl) {
-                            $(ctl).parents("tr").remove();
-                        }
-
-                        // Clear form fields
-                        function formClear() {
-                            $("#productname").val("");
-                            $("#introdate").val("");
-                            $("#url").val("");
-                        }
-                    </script>
-
-
-
-                </div>
-                <!-- Reles -->
-
-                <!-- Sensores -->
-                <div class="col multi-collapse collapse" class="collapse" id="sensores" data-bs-parent="#myGroup" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px; ">
-
-                    <h2 style="margin-bottom: 30px; margin-left: 30px;">
-                        Sensores
-                    </h2>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6">
-
-                            </div>
-                        </div>
-                        <div class="col-9">
-                <?php
-                //Conectamos para obtener la lista de personas
-                $idUsusario = $_SESSION['idUser'] ?? ''; 
-                $query = "SELECT * FROM sensor WHERE CCTV_idCCTV = (SELECT idCCTV FROM cctv WHERE Usuario_idUsuario = '$idUsusario');";
-                $result = $conn->query($query);
-                $numfilas = $result->num_rows;
-                if ($numfilas > 0) {
-                ?>
-                    <!-- Tabla de Registros -->
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">
-                                    <center>ID</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Alias</center>
-                                </th>
-                                <th scope="col">
-                                    <center>IP</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Datos</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Estado</center>
-                                </th>
-                                <th scope="col">
-                                    <center>CCTV Asociado</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Editar</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Eliminar</center>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            for ($i = 0; $i < $numfilas; $i++) {
-                                $aux = $result->fetch_object();
-                            ?>
-                                <tr>
-                                    <form id="formVivienda<?php echo $aux->idSensor; ?>" method="POST">
-                                        <input type="hidden" name="idVivienda" value="<?php echo $aux->idSensor; ?>">
-                                        <th class="align-middle" scope="row"><?php echo $i + 1; ?></th>
-                                        <td class="align-middle"><input name="Alias" id="Alias" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="text" value="<?php echo $aux->aliasSensor; ?>"></td>
-                                        <td class="align-middle"><input name="IP" id="IP" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="text" value="<?php echo $aux->direccionIPSensor; ?>"></td>
-                                        <td class="align-middle"><input name="Datos" id="Datos" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="text" value="<?php echo $aux->datosSensor; ?>"></td>
-                                        <td class="align-middle"><input name="Estado" id="Estado" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="number" value="<?php echo $aux->estadoSensor; ?>"></td>
-                                        <td class="align-middle"><input name="CCTVAsociado" id="CCTVAsociado" class="form-control" form="formVivienda<?php echo $aux->idSensor; ?>" type="number" value="<?php echo $aux->CCTV_idCCTV; ?>"></td>
-                                        <td class="align-middle"><button type="button" onclick="updateCam();" class="btn btn-primary">Actualizar</button></td>
-                                        <td class="align-middle"><button type="button" onclick="deleteCamara();" class="btn btn-primary">Borrar</button></td>
-                                    </form>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                <?php
-                } else {
-                ?>
-                    <h3>Upps... No hay camaras registradas</h3>
-                <?php
-                }
-                //cerrarConexion();
-                ?>
-            </div>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h2>Información del componente</h2>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <label for="productname">
-                                                Nombre del sensor
-                                            </label>
-                                            <input type="text" class="form-control" value=" " id="productname" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="introdate">
-                                                Dirección IP
-                                            </label>
-                                            <input type="text" class="form-control" value=" " id="introdate" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="url">
-                                                Estado
-                                            </label>
-                                            <input type="text" class="form-control" value=" " id="url" />
-                                        </div>
-                                    </div>
-                                    <div class="panel-footer">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <button type="button" id="updateButton" class="btn " onclick="productUpdate();" style="margin-top: 20px;">
-                                                    Añadir
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        // Next id for adding a new Product
-                        var nextId = 1;
-                        // ID of Product currently editing
-                        var activeId = 0;
-
-                        function productDisplay(ctl) {
-                            var row = $(ctl).parents("tr");
-                            var cols = row.children("td");
-
-                            activeId = $($(cols[0]).children("button")[0]).data("id");
-                            $("#productname").val($(cols[1]).text());
-                            $("#introdate").val($(cols[2]).text());
-                            $("#url").val($(cols[3]).text());
-
-                            // Change Update Button Text
-                            $("#updateButton").text("Update");
-                        }
-
-                        function productUpdate() {
-                            if ($("#updateButton").text() == "Update") {
-                                productUpdateInTable(activeId);
-                            } else {
-                                productAddToTable();
-                            }
-
-                            // Clear form fields
-                            formClear();
-
-                            // Focus to product name field
-                            $("#productname").focus();
-                        }
-
-                        // Add product to <table>
-                        function productAddToTable() {
-                            // First check if a <tbody> tag exists, add one if not
-                            if ($("#productTable tbody").length == 0) {
-                                $("#productTable").append("<tbody></tbody>");
-                            }
-
-                            // Append product to table
-                            $("#productTable tbody").append(
-                                productBuildTableRow(nextId));
-
-                            // Increment next ID to use
-                            nextId += 1;
-                        }
-
-                        // Update product in <table>
-                        function productUpdateInTable(id) {
-                            // Find Product in <table>
-                            var row = $("#productTable button[data-id='" + id + "']")
-                                .parents("tr")[0];
-
-                            // Add changed product to table
-                            $(row).after(productBuildTableRow(id));
-                            // Remove original product
-                            $(row).remove();
-
-                            // Clear form fields
-                            formClear();
-
-                            // Change Update Button Text
-                            $("#updateButton").text("Add");
-                        }
-
-                        // Build a <table> row of Product data
-                        function productBuildTableRow(id) {
-                            var ret =
-                                "<tr>" +
-                                "<td>" +
-                                "<button type='button' " +
-                                "onclick='productDisplay(this);' " +
-                                "class='btn btn-default' " +
-                                "data-id='" + id + "'>" +
-                                "<span class='glyphicon glyphicon-edit' />" +
-                                "</button>" +
-                                "</td>" +
-                                "<td>" + $("#productname").val() + "</td>" +
-                                "<td>" + $("#introdate").val() + "</td>" +
-                                "<td>" + $("#url").val() + "</td>" +
-                                "<td>" +
-                                "<button type='button' " +
-                                "onclick='productDelete(this);' " +
-                                "class='btn btn-default' " +
-                                "data-id='" + id + "'>" +
-                                "<span class='glyphicon glyphicon-remove' />" +
-                                "</button>" +
-                                "</td>" +
-                                "</tr>"
-
-                            return ret;
-                        }
-
-                        // Delete product from <table>
-                        function productDelete(ctl) {
-                            $(ctl).parents("tr").remove();
-                        }
-
-                        // Clear form fields
-                        function formClear() {
-                            $("#productname").val("");
-                            $("#introdate").val("");
-                            $("#url").val("");
-                        }
-                    </script>
-
-                </div>
-                <!-- Sensores -->
 
             </div>
         </div>
@@ -1017,6 +471,8 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
 
 <!-- auteticación de Usuario -->
 <script src="jsQuerys/logoutUser.js"></script>
+<!-- consultas de página -->
+<script src="jsQuerys/panelAdmin.js"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
