@@ -1,11 +1,10 @@
 <?php
-
 require "modules/dbDelete.php";
-
 session_start();
 if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
     header('Location: login.html');
 }
+$idUsusario = $_SESSION['idUser'] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -148,7 +147,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                             <div class="card-body">
                                 <h5 class="card-title">Compromiso con la seguridad</h5>
                                 <p class="card-text">La seguridad es fundamental, y debe guiar todas nuestras acciones y compromisos.</p>
-                                <a href="quienes-somos.html" class="btn">Leer más</a>
+                                <a href="https://www.reddit.com/r/elliotForum/" class="btn" target="_blank">Leer más</a>
                             </div>
                         </div>
 
@@ -156,7 +155,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                             <div class="card-body">
                                 <h5 class="card-title">El alza de los CCTV's en el último año</h5>
                                 <p class="card-text">La seguridad presencial y tecnológica aumentó un 50% en 2021, se presume que más.</p>
-                                <a href="productos.html" class="btn">Leer más</a>
+                                <a href="https://www.reddit.com/r/elliotForum/" class="btn" target="_blank">Leer más</a>
                             </div>
                         </div>
 
@@ -164,7 +163,7 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                             <div class="card-body">
                                 <h5 class="card-title">Criptografía: Pilar de la seguridad</h5>
                                 <p class="card-text">Pilar esencial para garantizar la seguridad de cualquier comunicación que se realice.</p>
-                                <a href="planes.html" class="btn">Leer más</a>
+                                <a href="https://www.reddit.com/r/elliotForum/" class="btn" target="_blank">Leer más</a>
                             </div>
                         </div>
                     </center>
@@ -241,41 +240,54 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                     <div id="myGroup2">
 
                         <span style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;">
-                            <!--Camara 1-->
-                            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" data-bs-parent="#myGroup2">
-                                Cámara 1
-                            </button>
-                            <!--Camara 2-->
-                            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" data-bs-parent="#myGroup2">
-                                Cámara 2
-                            </button>
+                            <?php
+                            $query = "SELECT * FROM camara WHERE CCTV_idCCTV = (SELECT idCCTV FROM cctv WHERE Usuario_idUsuario = '$idUsusario');";
+                            $result = $conn->query($query);
+                            $numfilas = $result->num_rows;
+                            if ($numfilas > 0) {
+                                $arregloCamaras = array();
+                                for ($i = 0; $i < $numfilas; $i++) {
+                                    $aux = $result->fetch_object();
+                                    array_push($arregloCamaras, $aux);
+                            ?>
+                                    <button <?php $check = $aux->estadoCamara == "0" ? "disabled" : "";
+                                            echo $check; ?> class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample<?php echo $i; ?>" aria-expanded="false" aria-controls="collapseExample<?php echo $i; ?>" data-bs-parent="#myGroup2">
+                                        <?php echo $aux->aliasCamara; ?>
+                                    </button>
+                                <?php
+                                }
+                                ?>
+
+                            <?php
+                            }
+                            ?>
                             <!--Añadir Cámara-->
                             <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3" data-bs-parent="#myGroup2" style="float: right;">
                                 +
                             </button>
                         </span>
 
-                        <!--Camara 1-->
-                        <div class="multi-collapse collapse" id="collapseExample" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
-                            <p>Feed de la cámara 1:</p>
-                            <iframe width="850" height="650" src="https://c512-2800-e2-5680-2a59-b9c6-a15f-68b-146a.ngrok.io/" title="Camera video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <!--Camara 2-->
-                        <div class="multi-collapse collapse" id="collapseExample2" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
-                            <p>Feed de la cámara 2:</p>
-                            <iframe width="850" height="650" src="https://www.youtube.com/embed/qM19eRgOK1Q?controls=0" title="Camera video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
+                        <!--Camara-->
+                        <?php
+                        if ($numfilas > 0) {
+                            for ($i = 0; $i < $numfilas; $i++) {
+                        ?>
+                                <div class="multi-collapse collapse" id="collapseExample<?php echo $i; ?>" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
+                                    <p>Feed de la cámara <?php echo $arregloCamaras[$i]->aliasCamara; ?>:</p>
+                                    <iframe width="850" height="650" src="<?php echo $arregloCamaras[$i]->direccionIPCamara; ?>" title="Camera video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                        <?php }
+                        }
+                        ?>
 
-
-
+                        <!--Añadir Camaras-->
                         <div class="multi-collapse collapse" id="collapseExample3" style="padding-bottom:10px; padding-top:20px; margin-left: 30px;   margin-top: 50px; margin-bottom: 50px;" data-bs-parent="#myGroup2">
                             <h2>Listado y añadir cámaras</h2>
 
                             <div class="container">
                                 <div class="row">
                                     <?php
-                                    //Conectamos para obtener la lista de camaras
-                                    $idUsusario = $_SESSION['idUser'] ?? '';
+                                    //Obtenemos la lista de camaras
                                     $query = "SELECT * FROM camara WHERE CCTV_idCCTV = (SELECT idCCTV FROM cctv WHERE Usuario_idUsuario = '$idUsusario');";
                                     $result = $conn->query($query);
                                     $numfilas = $result->num_rows;
@@ -326,8 +338,8 @@ if (!isset($_SESSION['idUser']) && empty($_SESSION['idUser'])) {
                                                             <td class="align-middle"><input name="Modelo" id="Modelo" class="form-control" form="formActualizarCamara<?php echo $aux->idCamara; ?>" type="text" value="<?php echo $aux->modeloCamara; ?>"></td>
                                                             <td class="align-middle">
                                                                 <div class="form-check form-switch">
-                                                                    <input class="form-check-input" type="checkbox" role="switch" name="estadoCamara" id="estadoCamara" form="formActualizarCamara<?php echo $aux->idCamara; ?>" <?php $check = $aux->estadoCamara == "1" ? "checked" : "";
-                                                                                                                                                                                                                                    echo $check; ?>>
+                                                                    <input class="form-check-input" type="checkbox" role="switch" name="estadoCamara" id="estadoCamara" form="formActualizarCamara<?php echo $aux->idCamara; ?>" value="1" <?php $check = $aux->estadoCamara == "1" ? "checked" : "";
+                                                                                                                                                                                                                                            echo $check; ?>>
                                                                 </div>
                                                             </td>
                                                             <td class="align-middle">

@@ -1,3 +1,43 @@
+function deleteCamara(cam) {
+    swal({
+            title: "¿Estás seguro de borrar la cámara?",
+            text: "Una vez borrada, no podrás recuperar la información de consulta!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                let nombre = '#formActualizarCamara' + cam;
+                let datos = $(nombre).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "partials/deleteCamara.php",
+                    data: datos,
+                    success: function(r) {
+                        switch (r) {
+                            case '1':
+                                swal("Perfecto", "Camara eliminada con éxito :D", "success")
+                                    .then((value) => {
+                                        location.reload();
+                                    });
+                                break;
+                            case '2':
+                                swal("Upps...", "Ha ocurrido un error al conectar con la Base de Datos... \n\n Contacta a Soporte :s (Codigo error C-101)", "error");
+                                break;
+                            default:
+                                swal("Upps...", r, "error");
+                                //swal("Upps...", "Ha ocurrido un error al conectar con el servidor! \n\n Contacta a Soporte :s (Codigo error C-102)", "error");
+                                break;
+                        }
+                    }
+                });
+            } else {}
+        });
+
+
+}
+
 function updateCamara(cam) {
     let nombre = '#formActualizarCamara' + cam;
     let datos = $(nombre).serialize();
